@@ -17,9 +17,9 @@ body {
   border-radius: 10px;
   position: absolute;
   top: 50%;
-  left: 75%;
+  left: 50%;
   transform: translate(-50%, -50%);
-  width: 400px;
+  width: 300px;
   border: 1px solid #5f5f63;
   outline: 1px solid #111111;
 }
@@ -36,6 +36,10 @@ body {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
+.calculator-keys {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
 button {
   height: 60px;
   background-color: #fff;
@@ -44,47 +48,42 @@ button {
   font-size: 2rem;
   color: #ffffff;
 }
-
 button:hover {
   background-color: #757479;
 }
-
-.all-clear {
+button:active {
+  background-color: #a7a6ac;
+}
+.other-operators {
   background-color: #3c3b40;
   border-color: #2f2e32;
 }
-
-.all-clear:hover {
+.other-operators:hover {
   background-color: #5f5e62;
 }
-.percent {
-  background-color: #3c3b40;
-  border-color: #2f2e32;
-}
-.percent:hover {
-  background-color: #5f5e62;
-}
-.plus-minus {
-  background-color: #3c3b40;
-  border-color: #2f2e32;
-}
-.plus-minus:hover {
-  background-color: #5f5e62;
+.other-operators:active {
+  background-color: #a7a6ac;
 }
 .equal-sign {
   background-color: #2e86c0;
-  border-color: #49484;
+  border-color: #49484b;
   border-bottom-right-radius: 10px;
 }
 .equal-sign:hover {
   background-color: #4e9ed4;
+}
+.equal-sign:active {
+  background-color: #75a7c8;
 }
 .operators {
   background-color: #eea03b;
   border-color: #49484b;
 }
 .operators:hover {
-  background-color: #e9ae61;
+  background-color: #efaf5b;
+}
+.operators:active {
+  background-color: #e7c291;
 }
 .zero {
   border-bottom-left-radius: 10px;
@@ -93,8 +92,4 @@ button:hover {
   grid-column-start: 1;
   grid-column-end: 3;
   width: 100%;
-}
-.calculator-keys {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
 }

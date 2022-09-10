@@ -9,33 +9,27 @@
   </head>
   <body>
     <container class="calculator">
-      <input type="text" class="calculator-display" value="0" />
+      <div data-display-screen="0" class="calculator-display">0</div>
       <div class="calculator-keys">
-        <button
-          onclick="myFunction(this, 'red')"
-          class="all-clear"
-          value="reset"
-        >
-          AC
-        </button>
-        <button class="plus-minus" value="+/-">&plusmn</button>
-        <button class="percent" value="%">%</button>
-        <button class="operators" value="/">&divide</button>
-        <button value="7">7</button>
-        <button value="8">8</button>
-        <button value="9">9</button>
-        <button class="operators" value="*">&times</button>
-        <button value="4">4</button>
-        <button value="5">5</button>
-        <button value="6">6</button>
-        <button class="operators" value="-">-</button>
-        <button value="1">1</button>
-        <button value="2">2</button>
-        <button value="3">3</button>
-        <button class="operators" value="+">+</button>
-        <button class="zero" value="0">0</button>
-        <button class="decimal" value=".">.</button>
-        <button class="equal-sign" value="=">=</button>
+        <button data-all-clear="A/C" class="other-operators">AC</button>
+        <button data-operation="+/-" class="other-operators">&plusmn</button>
+        <button data-operation="%" class="other-operators">%</button>
+        <button data-operation="/" class="operators">&divide</button>
+        <button data-number="7">7</button>
+        <button data-number="8">8</button>
+        <button data-number="9">9</button>
+        <button data-operation="*" class="operators">&times</button>
+        <button data-number="4">4</button>
+        <button data-number="5">5</button>
+        <button data-number="6">6</button>
+        <button data-operation="-" class="operators">-</button>
+        <button data-number="1">1</button>
+        <button data-number="2">2</button>
+        <button data-number="3">3</button>
+        <button data-operation="+" class="operators">+</button>
+        <button data-number="0" class="zero">0</button>
+        <button data-number="." class="decimal">.</button>
+        <button data-equals="=" class="equal-sign">=</button>
       </div>
     </container>
 
