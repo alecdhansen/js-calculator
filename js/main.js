@@ -3,6 +3,9 @@ const operationButtons = document.querySelectorAll(".operators");
 const equals = document.querySelector(".equal-sign");
 const displayScreen = document.querySelector(".calculator-display");
 let calculation = [];
+let firstNumber = "";
+let operator = "";
+let secondNumber = "";
 
 function pushNumber() {
   numberButtons.forEach(function (numberButton) {
@@ -10,6 +13,7 @@ function pushNumber() {
       calculation.push(numberButton.value);
       console.log(calculation);
       alert(numberButton.value);
+      displayScreen.innerHTML = numberButton.value;
     });
   });
 }
@@ -18,19 +22,24 @@ pushNumber();
 function pushOperator() {
   operationButtons.forEach(function (operationButton) {
     operationButton.addEventListener("click", function () {
-      calculation.push(operationButton.value);
-      console.log(calculation);
+      if ("C".includes(operationButton.value)) {
+        calculation = [];
+        displayScreen.innerHTML = "0";
+      } else {
+        calculation.push(operationButton.value);
+        console.log(calculation);
+      }
       alert(operationButton.value);
     });
   });
 }
 pushOperator();
 
+// if operatoin button = C, do someting special
+
 function calculate() {
   equals.addEventListener("click", function () {
-    let firstNumber = "";
-    let operator = "";
-    let secondNumber = "";
+    alert("=");
     for (let i = 0; i < calculation.length; i++) {
       if ("+-*/".includes(calculation[i])) {
         operator = calculation[i];
@@ -42,8 +51,9 @@ function calculate() {
     }
     let finalCalculation = evaluate(firstNumber, operator, secondNumber);
     calculation = [];
-    calculation.push(finalCalculation.toString());
+    calculation.push(finalCalculation);
     alert(finalCalculation);
+    displayScreen.innerHTML = finalCalculation;
   });
 }
 calculate();
