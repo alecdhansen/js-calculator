@@ -54,16 +54,6 @@ button:hover {
 button:active {
   background-color: #a7a6ac;
 }
-.other-operators {
-  background-color: #3c3b40;
-  border-color: #2f2e32;
-}
-.other-operators:hover {
-  background-color: #5f5e62;
-}
-.other-operators:active {
-  background-color: #a7a6ac;
-}
 .equal-sign {
   background-color: #2e86c0;
   border-color: #49484b;
@@ -84,6 +74,16 @@ button:active {
 }
 .operators:active {
   background-color: #e7c291;
+}
+.other-operators {
+  background-color: #3c3b40;
+  border-color: #2f2e32;
+}
+.other-operators:hover {
+  background-color: #5f5e62;
+}
+.other-operators:active {
+  background-color: #a7a6ac;
 }
 .zero {
   border-bottom-left-radius: 10px;

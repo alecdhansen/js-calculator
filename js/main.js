@@ -1,20 +1,61 @@
-const numberButtons = document.querySelectorAll("[data-number]");
-const operationButtons = document.querySelectorAll("[data-operation]");
-const equals = document.querySelector("[data-equals]");
-const allClear = document.querySelector("[data-all-clear]");
-const displayScreen = document.querySelector("[data-display-screen]");
+const numberButtons = document.querySelectorAll(".numberButtons");
+const operationButtons = document.querySelectorAll(".operators");
+const equals = document.querySelector(".equal-sign");
+const displayScreen = document.querySelector(".calculator-display");
+let calculation = [];
 
-numberButtons.forEach(function (numberButton) {
-  console.log(numberButton);
-});
+function pushNumber() {
+  numberButtons.forEach(function (numberButton) {
+    numberButton.addEventListener("click", function () {
+      calculation.push(numberButton.value);
+      console.log(calculation);
+      alert(numberButton.value);
+    });
+  });
+}
+pushNumber();
 
-operationButtons.forEach(function (operationButton) {
-  console.log(operationButton);
-});
+function pushOperator() {
+  operationButtons.forEach(function (operationButton) {
+    operationButton.addEventListener("click", function () {
+      calculation.push(operationButton.value);
+      console.log(calculation);
+      alert(operationButton.value);
+    });
+  });
+}
+pushOperator();
 
-equals.addEventListener("click", function () {
-  alert("=");
-});
-allClear.addEventListener("click", function () {
-  alert("A/C");
-});
+function calculate() {
+  equals.addEventListener("click", function () {
+    let firstNumber = "";
+    let operator = "";
+    let secondNumber = "";
+    for (let i = 0; i < calculation.length; i++) {
+      if ("+-*/".includes(calculation[i])) {
+        operator = calculation[i];
+      } else if (firstNumber != "" && operator != "") {
+        secondNumber += calculation[i];
+      } else {
+        firstNumber += calculation[i];
+      }
+    }
+    let finalCalculation = evaluate(firstNumber, operator, secondNumber);
+    calculation = [];
+    calculation.push(finalCalculation.toString());
+    alert(finalCalculation);
+  });
+}
+calculate();
+
+function evaluate(firstNumber, operator, secondNumber) {
+  if (operator === "+") {
+    return parseInt(firstNumber) + parseInt(secondNumber);
+  } else if (operator === "-") {
+    return parseInt(firstNumber) - parseInt(secondNumber);
+  } else if (operator === "*") {
+    return parseInt(firstNumber) * parseInt(secondNumber);
+  } else {
+    return parseInt(firstNumber) / parseInt(secondNumber);
+  }
+}
