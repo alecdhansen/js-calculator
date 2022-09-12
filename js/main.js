@@ -12,7 +12,7 @@ function pushNumber() {
     numberButton.addEventListener("click", function () {
       calculation.push(numberButton.value);
       console.log(calculation);
-      alert(numberButton.value);
+      //   alert(numberButton.value);
       displayScreen.innerHTML = numberButton.value;
     });
   });
@@ -29,17 +29,15 @@ function pushOperator() {
         calculation.push(operationButton.value);
         console.log(calculation);
       }
-      alert(operationButton.value);
+      //   alert(operationButton.value);
     });
   });
 }
 pushOperator();
 
-// if operatoin button = C, do someting special
-
 function calculate() {
   equals.addEventListener("click", function () {
-    alert("=");
+    // alert("=");
     for (let i = 0; i < calculation.length; i++) {
       if ("+-*/".includes(calculation[i])) {
         operator = calculation[i];
@@ -52,7 +50,7 @@ function calculate() {
     let finalCalculation = evaluate(firstNumber, operator, secondNumber);
     calculation = [];
     calculation.push(finalCalculation);
-    alert(finalCalculation);
+    // alert(finalCalculation);
     displayScreen.innerHTML = finalCalculation;
   });
 }
