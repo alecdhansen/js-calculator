@@ -19,7 +19,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 300px;
+  width: 275px;
   border: 1px solid #5f5f63;
   outline: 1px solid #111111;
 }
@@ -35,6 +35,9 @@ body {
   padding-left: 10px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  font-family: Helvetica;
+  overflow: auto;
+  font-size: 70px;
 }
 .calculator-keys {
   display: grid;
