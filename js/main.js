@@ -4,7 +4,7 @@ const equals = document.querySelector(".equal-sign");
 const displayScreen = document.querySelector(".calculator-display");
 let calculation = [];
 let firstNumber = "";
-let operator = "";
+let operator = ""; //null
 let secondNumber = "";
 
 function pushNumber() {
@@ -38,13 +38,15 @@ pushOperator();
 function calculate() {
   equals.addEventListener("click", function () {
     // alert("=");
+    const operators = ["+", "-", "*", "/"];
     for (let i = 0; i < calculation.length; i++) {
-      if ("+-*/".includes(calculation[i])) {
-        operator = calculation[i];
+      const char = calculation[i];
+      if (operators.includes(char)) {
+        operator = char;
       } else if (firstNumber != "" && operator != "") {
-        secondNumber += calculation[i];
+        secondNumber += char;
       } else {
-        firstNumber += calculation[i];
+        firstNumber += char;
       }
     }
     let finalCalculation = evaluate(firstNumber, operator, secondNumber);
@@ -57,13 +59,15 @@ function calculate() {
 calculate();
 
 function evaluate(firstNumber, operator, secondNumber) {
+  firstNumber = parseFloat(firstNumber);
+  secondNumber = parseFloat(secondNumber);
   if (operator === "+") {
-    return parseInt(firstNumber) + parseInt(secondNumber);
+    return firstNumber + secondNumber;
   } else if (operator === "-") {
-    return parseInt(firstNumber) - parseInt(secondNumber);
+    return firstNumber - secondNumber;
   } else if (operator === "*") {
-    return parseInt(firstNumber) * parseInt(secondNumber);
+    return firstNumber * secondNumber;
   } else {
-    return parseInt(firstNumber) / parseInt(secondNumber);
+    return firstNumber / secondNumber;
   }
 }
