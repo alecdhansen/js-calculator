@@ -4,16 +4,17 @@ const equals = document.querySelector(".equal-sign");
 const displayScreen = document.querySelector(".calculator-display");
 let calculation = [];
 let firstNumber = "";
-let operator = ""; //null
+let operator = null;
 let secondNumber = "";
 
 function pushNumber() {
   numberButtons.forEach(function (numberButton) {
     numberButton.addEventListener("click", function () {
       calculation.push(numberButton.value);
-      // console.log(calculation);
+      console.log(calculation);
       // alert(numberButton.value);
       displayScreen.innerHTML = numberButton.value;
+      displayScreen.innerHTML = calculation.join("");
     });
   });
 }
@@ -24,10 +25,13 @@ function pushOperator() {
     operationButton.addEventListener("click", function () {
       if ("C".includes(operationButton.value)) {
         calculation = [];
+        firstNumber = "";
+        secondNumber = "";
         displayScreen.innerHTML = "0";
       } else {
         calculation.push(operationButton.value);
-        // console.log(calculation);
+        console.log(calculation);
+        displayScreen.innerHTML = calculation.join("");
       }
       // alert(operationButton.value);
     });
@@ -54,6 +58,7 @@ function calculate() {
     calculation.push(finalCalculation);
     // alert(finalCalculation);
     displayScreen.innerHTML = finalCalculation;
+    console.log(finalCalculation);
   });
 }
 calculate();
